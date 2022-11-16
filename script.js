@@ -9,6 +9,7 @@
 // 3. Покупка продукта. Функция принимает название продукта
 // и отмечает его как купленный.
 
+/*
 function Purchase(nameOfPurchase, quantity, isBought) {
     this.nameOfPurchase = nameOfPurchase;
     this.quantity = quantity;
@@ -34,36 +35,125 @@ ShowArray = function (array) {
 }
 
 AddPurchase = function (array, myPurchase) {
+    let count = 0;
     for (let i = 0; i < array.length; i++) {
         if (array[i].nameOfPurchase === myPurchase.nameOfPurchase) {
-            array[i].quantity += myPurchase.quantity; break;
+            array[i].quantity += myPurchase.quantity;
         }
-        // ДОДЕЛАТЬ!
+        else {
+            count++;
+        }
     }
-    array.push(myPurchase);
-    // for (let i = 0; i < array.length; i++) {
-    //     if ()
-    // }
-    // if (array[i].)
-    // array.push(myPurchase);
-
-    // for (let i = 0; i < ListOfPurchase.length; i++) {
-    // const pur = ListOfPurchase.find(pur => pur.nameOfPurchase === myPurchase.nameOfPurchase);
-    // if (!pur)
-    //     ListOfPurchase.push(myPurchase);
-    // pur.amount += myPurchase.amount;
-    // if (myPurchase.nameOfPurchase === array[i].nameOfPurchase) {
-    //     let resultQuantity = myPurchase.quantity + array[i].quantity;
-    //     myPurchase.quantity = resultQuantity;
-    // }
-    // else { 
-    //     array.push(myPurchase);
-    // }
-    // }
+    if (count === array.length) {
+        array.push(myPurchase);
+    }
 }
 
-const myPurchase1 = new Purchase("Sugar", 1, false);
+BuyOfPurchase = function(array, editIsBoughtByNameOfPurchase) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].nameOfPurchase === editIsBoughtByNameOfPurchase) {
+            array[i].isBought = true;
+        }
+    }
+}
+
+const myPurchase1 = new Purchase("Sugar", 1, true);
 
 AddPurchase(ListOfPurchase, myPurchase1);
 
+BuyOfPurchase(ListOfPurchase, "Butter");
+
 ShowArray(ListOfPurchase);
+*/
+
+// Задание 2
+// Создать массив, описывающий чек в магазине. Каждый эле-
+// мент массива состоит из названия товара, количества и цены за
+// единицу товара. Написать следующие функции.
+// 1. Распечатка чека на экран.
+// 2. Подсчет общей суммы покупки.
+// 3. Получение самой дорогой покупки в чеке.
+// 4. Подсчет средней стоимости одного товара в чеке.
+
+/*
+function Product(nameOfProduct, quantity, priceForOnePiece) {
+    this.nameOfProduct = nameOfProduct;
+    this.quantity = quantity;
+    this.priceForOnePiece = priceForOnePiece;
+}
+
+const product1 = new Product("Microwave", 2, 12000);
+const product2 = new Product("TV", 1, 60000);
+const product3 = new Product("Gamepad", 4, 9000);
+const product4 = new Product("Plate", 1, 25000);
+
+var Check = [product1, product2, product3, product4];
+
+ShowCheck = function (array) {
+    for (let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+    }
+}
+
+SumOfCheck = function (array) {
+    let sum = 0;
+    let tempSum = 0;
+    for (let i = 0; i < array.length; i++) {
+        tempSum = array[i].quantity * array[i].priceForOnePiece;
+        sum += tempSum;
+    }
+    console.log(sum);
+}
+
+TheGreatestPurchase = function (array) {
+    var max = 0;
+    for (let i = 0; i < array.length; i++) {
+        max = array[0].quantity * array[0].priceForOnePiece;
+    }
+    for (let i = 0; i < array.length; i++) {
+        if ((array[i].quantity * array[i].priceForOnePiece) > max) {
+            max = array[i];
+        }
+    }
+    console.log(max);
+}
+
+// Эту задачу я не понял до конца,
+// Решил сложить сумму покупок
+// И поделить на общее количество товаров
+AveragePrice = function (array) {
+    let sum = 0;
+    let tempSum = 0;
+    for (let i = 0; i < array.length; i++) {
+        tempSum = array[i].quantity * array[i].priceForOnePiece;
+        sum += tempSum;
+    }
+    let sumQuan = 0;
+    for (let i = 0; i < array.length; i++) {
+        sumQuan += array[i].quantity;
+    }
+    let result = sum / sumQuan;
+    console.log(result);
+}
+
+ShowCheck(Check);
+SumOfCheck(Check);
+TheGreatestPurchase(Check);
+AveragePrice(Check);
+*/
+
+// Задание 3
+// Создать массив css-стилей (цвет, размер шрифта, выравнива-
+// ние, подчеркивание и т. д.). Каждый элемент массива – это объ-
+// ект, состоящий из двух свойств: название стиля и значение стиля.
+// Написать функцию, которая принимает массив стилей и
+// текст, и выводит этот текст с помощью document.write() в тегах
+// <p></p>, добавив в открывающий тег атрибут style со всеми сти-
+// лями, перечисленными в массиве.
+
+function Object (nameOfStyle, valueOfStyle) {
+    this.nameOfStyle = nameOfStyle;
+    this.valueOfStyle = valueOfStyle;
+}
+
+var ListOfObjects;
