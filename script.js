@@ -151,9 +151,116 @@ AveragePrice(Check);
 // <p></p>, добавив в открывающий тег атрибут style со всеми сти-
 // лями, перечисленными в массиве.
 
-function Object (nameOfStyle, valueOfStyle) {
+/*
+function Style (nameOfStyle, valueOfStyle) {
     this.nameOfStyle = nameOfStyle;
     this.valueOfStyle = valueOfStyle;
 }
 
-var ListOfObjects;
+const style1 = new Style("font-size", "26px");
+const style2 = new Style("color", "red");
+const style3 = new Style("font-weight", "bold");
+const style4 = new Style("font-style", "italic");
+
+var ListOfStyles = [style1, style2, style3, style4];
+
+ShowStyle = function (array, text) {
+    var temp = "";
+    for (let i = 0; i < array.length; i++) {
+        temp += `${array[i].nameOfStyle}: ${array[i].valueOfStyle};`;
+        //console.log(temp);        
+    }
+    document.write(`<p style="${temp}">${text}</p>`);
+}
+
+ShowStyle(ListOfStyles, "The Sun is shining!");
+*/
+
+// Задание 4
+// Создать массив аудиторий академии. Объект-аудитория со-
+// стоит из названия, количества посадочных мест (от 10 до 20) и
+// названия факультета, для которого она предназначена.
+// Написать несколько функций для работы с ним.
+// 1. Вывод на экран всех аудиторий.
+// 2. Вывод на экран аудиторий для указанного факультета.
+// 3. Вывод на экран только тех аудиторий, которые подходят для
+// переданной группы. Объект-группа состоит из названия,
+// количества студентов и названия факультета.
+// 4. Функция сортировки аудиторий по количеству мест.
+// 5. Функция сортировки аудиторий по названию (по алфа-
+// виту).
+
+/*
+function Audience(nameOfAudience, capacity, nameOfFaculty) {
+    this.nameOfAudience = nameOfAudience;
+    this.capacity = capacity;
+    this.nameOfFaculty = nameOfFaculty;
+}
+
+function Group(nameOfGroup, quantityOfStudents, nameOfFaculty) {
+    this.nameOfGroup = nameOfGroup;
+    this.quantityOfStudents = quantityOfStudents;
+    this.nameOfFaculty = nameOfFaculty;
+}
+
+const group1 = new Group("PV121", 15, "Math");
+
+const audience1 = new Audience(301, 12, "Math");
+const audience8 = new Audience(302, 15, "Math");
+const audience6 = new Audience(303, 10, "Math");
+const audience4 = new Audience(401, 11, "Physics");
+const audience5 = new Audience(402, 17, "Physics");
+const audience3 = new Audience(403, 10, "Physics");
+const audience7 = new Audience(501, 13, "Biology");
+const audience2 = new Audience(502, 19, "Biology");
+const audience9 = new Audience(503, 16, "Biology");
+
+var ListOfAudience = [audience1, audience2, audience3,
+    audience4, audience5, audience6, audience7, audience8,
+    audience9];
+
+ShowAudiences = function (array) {
+    for (let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+    }
+}
+
+ShowAudiencesByFaculty = function (array, nameOfFaculty) {
+    for (let i = 0; i < array.length; i++) {
+        if (nameOfFaculty === array[i].nameOfFaculty)
+            console.log(array[i].nameOfAudience);
+    }
+}
+
+ShowAudiencesForGroup = function (array, group) {
+    for (let i = 0; i < array.length; i++) {
+        if (array[i].nameOfFaculty === group.nameOfFaculty
+            && array[i].capacity >= group.quantityOfStudents)
+            console.log(array[i].nameOfAudience);
+    }
+}
+
+SortAudiencesByCapacity = function (array) {
+    array.sort(function (a, b) {
+        return a.capacity - b.capacity;
+    });
+    for (let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+    }
+}
+
+SortAudiencesByName = function (array) {
+    array.sort(function(a,b) {
+        return a.nameOfAudience - b.nameOfAudience;
+    });
+    for (let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+    }
+}
+
+ShowAudiences(ListOfAudience);
+ShowAudiencesByFaculty(ListOfAudience, "Math");
+ShowAudiencesForGroup(ListOfAudience, group1);
+SortAudiencesByCapacity(ListOfAudience);
+SortAudiencesByName(ListOfAudience);
+*/
